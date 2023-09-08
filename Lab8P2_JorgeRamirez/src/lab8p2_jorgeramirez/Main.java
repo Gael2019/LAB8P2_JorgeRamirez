@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +24,8 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        
-        
+        Activacion();
+
     }
 
     /**
@@ -62,6 +63,14 @@ public class Main extends javax.swing.JFrame {
         SpinnerMedallas = new javax.swing.JSpinner();
         BotonCrearNadador = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,8 +130,6 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Nacionalidad");
 
-        ComboNacionalidadNA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Edad");
 
@@ -133,6 +140,11 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setText("Estilo de Nado");
 
         ComboEstiloNadador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libre", "Mariposa", "Dorso", "Pecho" }));
+        ComboEstiloNadador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboEstiloNadadorActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Distancia");
@@ -144,6 +156,11 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setText("Numero de Medallas");
 
         BotonCrearNadador.setText("CREAR NADADOR");
+        BotonCrearNadador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCrearNadadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -218,18 +235,74 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Nadador", jPanel2);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("ESTILO");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setText("DISTANCIA");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100", "200", "400", "800" }));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setText("RECORD");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pecho", "Libre", "Dorso", "Mariposa", " " }));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("CREAR UN EVENTO");
+
+        jToggleButton1.setText("CREAR EVENTO");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToggleButton1))
+                        .addGap(64, 64, 64)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(171, 171, 171))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel14)
+                .addGap(46, 46, 46)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(jToggleButton1)
+                .addGap(117, 117, 117))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel3);
+        jTabbedPane1.addTab("Crear un Evento", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -260,12 +333,51 @@ public class Main extends javax.swing.JFrame {
 
     private void BotonCrearPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearPaisActionPerformed
         // TODO add your handling code here:
+
+        String name = NombrePais.getText();
+        int medallas = Integer.parseInt(MedallasCrearPais.getText());
+        paises.add(new Pais(name, medallas));
         DefaultComboBoxModel x = (DefaultComboBoxModel) ComboNacionalidadNA.getModel();
-        
-        for (int i = 0; i < 10; i++) {
-            
+
+        for (int i = 0; i < paises.size(); i++) {
+            Pais p = paises.get(i);
+            x.addElement(p);
+
         }
+
+        ComboNacionalidadNA.setModel(x);
+        AgregarArchivo(paises.get(paises.size() - 1));
+        JOptionPane.showMessageDialog(this, "Pais creado con exito");
     }//GEN-LAST:event_BotonCrearPaisActionPerformed
+
+    private void BotonCrearNadadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearNadadorActionPerformed
+        // TODO add your handling code here:
+        String name = NombreNadador.getText();
+        String nacionalidad = (String) ComboNacionalidadNA.toString();
+        int age = Integer.parseInt(EdadNadador.getText());
+        double estatura = Double.parseDouble(EstaturaNadador.getText());
+
+        String[] estilos = {"LIBRE", "PECHO", "MARIPOSA", "DORSO"};
+        String estilo = "";
+        String selectedEstilo = (String) ComboEstiloNadador.getSelectedItem();
+
+        for (String posibleEstilo : estilos) {
+            if (selectedEstilo.equals(posibleEstilo)) {
+                estilo = posibleEstilo;
+                break;
+            }
+        }
+        int distancia = Integer.parseInt(DistanciaNadador.getText());
+        int tiempo = ((Integer)SpinnerTiempoN.getValue());
+        int nummeda= ((Integer)SpinnerMedallas.getValue());
+        nadadores.add(new Nadador(name, nacionalidad, age, estatura, estilo, distancia, estatura) );
+        AgregarArchivo(nadadores.get(nadadores.size()));
+        JOptionPane.showMessageDialog(this, "Nadador Creado");
+    }//GEN-LAST:event_BotonCrearNadadorActionPerformed
+
+    private void ComboEstiloNadadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboEstiloNadadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboEstiloNadadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,8 +413,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BotonCrearNadador;
@@ -317,9 +428,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField NombrePais;
     private javax.swing.JSpinner SpinnerMedallas;
     private javax.swing.JSpinner SpinnerTiempoN;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -332,22 +449,82 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
-    ArrayList <Pais> paises = new ArrayList();
-    ArrayList <Nadador> nadadores = new ArrayList();
-    
-    public void Activacion (){
+    ArrayList<Pais> paises = new ArrayList();
+    ArrayList<Nadador> nadadores = new ArrayList();
+
+    public void AgregarArchivo(Pais country) {
+        try {
+            File Archivo = new File("./PaisParticipantes.sof");
+            FileOutputStream fw = new FileOutputStream(Archivo);
+            ObjectOutputStream bw = new ObjectOutputStream(fw);
+            bw.writeObject(country);
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+        }
+    }
+
+    public ArrayList<Pais> Leer() {
+        ArrayList<Pais> paises = new ArrayList();
+        try {
+            File Archivo = new File("./PaisParticipantes.sof");
+            FileInputStream fw = new FileInputStream(Archivo);
+            ObjectInputStream bw = new ObjectInputStream(fw);
+            Pais country = new Pais();
+            while ((country = (Pais) bw.readObject()) != null) {
+                paises.add(country);
+
+            }
+        } catch (Exception e) {
+        }
+
+        return paises;
+    }
+
+    public void Activacion() {
         Pais country = new Pais();
-        ArrayList <Pais> paises = country.Leer();
+        ArrayList<Pais> paises = country.Leer();
         DefaultComboBoxModel x = (DefaultComboBoxModel) ComboNacionalidadNA.getModel();
-        
+
         for (int i = 0; i < paises.size(); i++) {
             Pais cty = paises.get(i);
             x.addElement(cty);
         }
         ComboNacionalidadNA.setModel(x);
     }
+    
+    public void AgregarArchivo(Nadador nadadores) {
+        try {
+            File Archivo = new File("./Nadador.sof");
+            FileOutputStream fw = new FileOutputStream(Archivo);
+            ObjectOutputStream bw = new ObjectOutputStream(fw);
+            bw.writeObject(nadadores);
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+        }
+    }
+
+    public ArrayList<Nadador> Leer2() {
+        ArrayList<Nadador> nadadores = new ArrayList();
+        try {
+            File Archivo = new File("./Nadador.sof");
+            FileInputStream fw = new FileInputStream(Archivo);
+            ObjectInputStream bw = new ObjectInputStream(fw);
+            Nadador nadador = new Nadador();
+            while ((nadador = (Nadador) bw.readObject()) != null) {
+                nadadores.add(nadador);
+
+            }
+        } catch (Exception e) {
+        }
+
+        return nadadores;
+    }
+
 }
-
-
-

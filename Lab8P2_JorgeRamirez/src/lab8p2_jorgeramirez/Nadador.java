@@ -17,17 +17,17 @@ public class Nadador implements Serializable {
     double estatura;
     String estiloNatacion;
     int distanciaNatacion;
-    double tiempoMasRapido;
+    int MejorTiempo;
     int medallas;
 
-    public Nadador(String nombre, String nacionalidad, int edad, double estatura, String estiloNatacion, int distanciaNatacion, double tiempoMasRapido) {
+    public Nadador(String nombre, String nacionalidad, int edad, double estatura, String estiloNatacion, int distanciaNatacion, int MejorTiempo) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.edad = edad;
         this.estatura = estatura;
         this.estiloNatacion = estiloNatacion;
         this.distanciaNatacion = distanciaNatacion;
-        this.tiempoMasRapido = tiempoMasRapido;
+        this.MejorTiempo = MejorTiempo;
         this.medallas = 0;
     }
 
@@ -80,11 +80,11 @@ public class Nadador implements Serializable {
     }
 
     public double getTiempoMasRapido() {
-        return tiempoMasRapido;
+        return MejorTiempo;
     }
 
-    public void setTiempoMasRapido(double tiempoMasRapido) {
-        this.tiempoMasRapido = tiempoMasRapido;
+    public void setTiempoMasRapido(int tiempoMasRapido) {
+        this.MejorTiempo = tiempoMasRapido;
     }
 
     public int getMedallas() {
@@ -95,9 +95,13 @@ public class Nadador implements Serializable {
         this.medallas = medallas;
     }
 
+    public Nadador() {
+    }
+    
+    
     @Override
     public String toString() {
-        return "Nadador{" + "nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", edad=" + edad + ", estatura=" + estatura + ", estiloNatacion=" + estiloNatacion + ", distanciaNatacion=" + distanciaNatacion + ", tiempoMasRapido=" + tiempoMasRapido + ", medallas=" + medallas + '}';
+        return "Nadador{" + "nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", edad=" + edad + ", estatura=" + estatura + ", estiloNatacion=" + estiloNatacion + ", distanciaNatacion=" + distanciaNatacion + ", tiempoMasRapido=" + MejorTiempo + ", medallas=" + medallas + '}';
     }
     
     
