@@ -370,8 +370,17 @@ public class Main extends javax.swing.JFrame {
         int distancia = Integer.parseInt(DistanciaNadador.getText());
         int tiempo = ((Integer)SpinnerTiempoN.getValue());
         int nummeda= ((Integer)SpinnerMedallas.getValue());
-        nadadores.add(new Nadador(name, nacionalidad, age, estatura, estilo, distancia, estatura) );
-        AgregarArchivo(nadadores.get(nadadores.size()));
+        Nadador nad = new Nadador(name, nacionalidad, age, estatura, estilo, distancia, tiempo, nummeda);
+        nadadores.add(nad);
+        AgregarArchivo(nadadores.get(nadadores.size()-1));
+        for (int i = 0; i < paises.size(); i++) {
+            String p = paises.get(i).toString();
+            String nadador = ComboNacionalidadNA.toString();
+            if (p.equals(nadador)) {
+                Pais pp = paises.get(i);
+                pp.getNadadores().add(nad);
+            }
+        }
         JOptionPane.showMessageDialog(this, "Nadador Creado");
     }//GEN-LAST:event_BotonCrearNadadorActionPerformed
 

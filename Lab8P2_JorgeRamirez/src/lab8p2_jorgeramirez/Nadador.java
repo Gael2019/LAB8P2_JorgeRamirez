@@ -20,7 +20,7 @@ public class Nadador implements Serializable {
     int MejorTiempo;
     int medallas;
 
-    public Nadador(String nombre, String nacionalidad, int edad, double estatura, String estiloNatacion, int distanciaNatacion, int MejorTiempo) {
+    public Nadador(String nombre, String nacionalidad, int edad, double estatura, String estiloNatacion, int distanciaNatacion, int MejorTiempo, int medallas) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.edad = edad;
@@ -28,7 +28,7 @@ public class Nadador implements Serializable {
         this.estiloNatacion = estiloNatacion;
         this.distanciaNatacion = distanciaNatacion;
         this.MejorTiempo = MejorTiempo;
-        this.medallas = 0;
+        this.medallas = medallas;
     }
 
     public String getNombre() {
