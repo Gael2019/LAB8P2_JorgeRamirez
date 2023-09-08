@@ -64,11 +64,11 @@ public class Main extends javax.swing.JFrame {
         BotonCrearNadador = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        RecordCrearEvent = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        DistanciaComboBox = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        EstiloComboBox = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
@@ -241,17 +241,22 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("DISTANCIA");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100", "200", "400", "800" }));
+        DistanciaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100", "200", "400", "800" }));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("RECORD");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pecho", "Libre", "Dorso", "Mariposa", " " }));
+        EstiloComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pecho", "Libre", "Dorso", "Mariposa", " " }));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setText("CREAR UN EVENTO");
 
         jToggleButton1.setText("CREAR EVENTO");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -261,7 +266,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstiloComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
@@ -270,11 +275,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DistanciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jToggleButton1))
                         .addGap(64, 64, 64)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RecordCrearEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(171, 171, 171))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -294,9 +299,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EstiloComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RecordCrearEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DistanciaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(jToggleButton1)
                 .addGap(117, 117, 117))
@@ -368,11 +373,11 @@ public class Main extends javax.swing.JFrame {
             }
         }
         int distancia = Integer.parseInt(DistanciaNadador.getText());
-        int tiempo = ((Integer)SpinnerTiempoN.getValue());
-        int nummeda= ((Integer)SpinnerMedallas.getValue());
+        int tiempo = ((Integer) SpinnerTiempoN.getValue());
+        int nummeda = ((Integer) SpinnerMedallas.getValue());
         Nadador nad = new Nadador(name, nacionalidad, age, estatura, estilo, distancia, tiempo, nummeda);
         nadadores.add(nad);
-        AgregarArchivo(nadadores.get(nadadores.size()-1));
+        AgregarArchivo(nadadores.get(nadadores.size() - 1));
         for (int i = 0; i < paises.size(); i++) {
             String p = paises.get(i).toString();
             String nadador = ComboNacionalidadNA.toString();
@@ -387,6 +392,50 @@ public class Main extends javax.swing.JFrame {
     private void ComboEstiloNadadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboEstiloNadadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboEstiloNadadorActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        String estiloSeleccionado = (String) EstiloComboBox.getSelectedItem();
+        String estilo = "";
+        String distanciaSeleccionada = (String) DistanciaComboBox.getSelectedItem();
+        String distancia = "";
+
+        switch (estiloSeleccionado) {
+            case "Pecho":
+                estilo = "Pecho";
+                break;
+            case "Libre":
+                estilo = "Libre";
+                break;
+            case "Mariposa":
+                estilo = "Mariposa";
+                break;
+            case "Dorso":
+                estilo = "Dorso";
+                break;
+        }
+
+        switch (distanciaSeleccionada) {
+            case "100":
+                distancia = "100";
+                break;
+            case "200":
+                distancia = "200";
+                break;
+            case "400":
+                distancia = "400";
+                break;
+            case "800":
+                distancia = "800";
+                break;
+        }
+
+        int distanciaValor = Integer.parseInt(distancia);
+        int records = Integer.parseInt(RecordCrearEvent.getText());
+        event.add(new Evento(estilo, distanciaValor, records));
+        JOptionPane.showMessageDialog(this, "Evento creado con éxito");
+        AgregarArchivo3(event.get(event.size() - 1));
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,16 +478,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JToggleButton BotonCrearPais;
     private javax.swing.JComboBox<String> ComboEstiloNadador;
     private javax.swing.JComboBox<String> ComboNacionalidadNA;
+    private javax.swing.JComboBox<String> DistanciaComboBox;
     private javax.swing.JTextField DistanciaNadador;
     private javax.swing.JTextField EdadNadador;
     private javax.swing.JTextField EstaturaNadador;
+    private javax.swing.JComboBox<String> EstiloComboBox;
     private javax.swing.JTextField MedallasCrearPais;
     private javax.swing.JTextField NombreNadador;
     private javax.swing.JTextField NombrePais;
+    private javax.swing.JTextField RecordCrearEvent;
     private javax.swing.JSpinner SpinnerMedallas;
     private javax.swing.JSpinner SpinnerTiempoN;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -458,9 +508,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
+    ArrayList<Evento> event = new ArrayList();
     ArrayList<Pais> paises = new ArrayList();
     ArrayList<Nadador> nadadores = new ArrayList();
 
@@ -505,7 +555,7 @@ public class Main extends javax.swing.JFrame {
         }
         ComboNacionalidadNA.setModel(x);
     }
-    
+
     public void AgregarArchivo(Nadador nadadores) {
         try {
             File Archivo = new File("./Nadador.sof");
@@ -536,4 +586,16 @@ public class Main extends javax.swing.JFrame {
         return nadadores;
     }
 
+    public void AgregarArchivo3(Evento event) {
+        try {
+            File Archivo = new File("./Evento.sof");
+            FileOutputStream fw = new FileOutputStream(Archivo);
+            ObjectOutputStream bw = new ObjectOutputStream(fw);
+            bw.writeObject(nadadores);
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+        }
+    }
 }
