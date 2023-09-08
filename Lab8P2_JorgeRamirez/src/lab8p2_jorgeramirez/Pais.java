@@ -59,6 +59,37 @@ public class Pais implements Serializable {
     public Pais() {
     }
     
+    public void AgregarArchivo (Pais country){
+        try{
+            File Archivo = new File("./PaisParticipantes.sof");
+            FileOutputStream fw = new FileOutputStream(Archivo);
+            ObjectOutputStream bw = new ObjectOutputStream(fw);
+            bw.writeObject(country);
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (Exception e){   
+        }  
+    }
+    
+    public ArrayList <Pais> Leer(){
+        ArrayList <Pais> paises = new ArrayList();
+        try {
+            File Archivo = new File ("./PaisParticipantes.sof");
+            FileInputStream fw = new FileInputStream(Archivo);
+            ObjectInputStream bw = new ObjectInputStream(fw);
+            Pais country = new Pais();
+            while ((country = (Pais) bw.readObject()) != null) {
+                paises.add(country);
+                
+            }
+        } catch (Exception e) {
+        }
+        
+      return paises;
+     }
+    
+    
 
 }
 

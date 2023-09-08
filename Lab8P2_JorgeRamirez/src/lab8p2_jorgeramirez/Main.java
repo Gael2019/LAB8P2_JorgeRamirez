@@ -302,35 +302,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
     
-   public void AgregarArchivo (Pais country){
-        try{
-            File Archivo = new File("./PaisParticipantes.sof");
-            FileOutputStream fw = new FileOutputStream(Archivo);
-            ObjectOutputStream bw = new ObjectOutputStream(fw);
-            bw.writeObject(country);
-            bw.flush();
-            bw.close();
-            fw.close();
-        } catch (Exception e){   
-        }  
-    }
-    
-    public ArrayList <Pais> Leer(){
-        ArrayList <Pais> paises = new ArrayList();
-        try {
-            File Archivo = new File ("./PaisParticipantes.sof");
-            FileInputStream fw = new FileInputStream(Archivo);
-            ObjectInputStream bw = new ObjectInputStream(fw);
-            Pais country = new Pais();
-            while ((country = (Pais) bw.readObject()) != null) {
-                paises.add(country);
-                
-            }
-        } catch (Exception e) {
-        }
-        
-      return paises;
-     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BotonCrearNadador;
@@ -363,7 +335,18 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList <Pais> paises = new ArrayList();
     ArrayList <Nadador> nadadores = new ArrayList();
-
+    
+    public void Activacion (){
+        Pais country = new Pais();
+        ArrayList <Pais> paises = country.Leer();
+        DefaultComboBoxModel x = (DefaultComboBoxModel) ComboNacionalidadNA.getModel();
+        
+        for (int i = 0; i < paises.size(); i++) {
+            Pais cty = paises.get(i);
+            x.addElement(cty);
+        }
+        ComboNacionalidadNA.setModel(x);
+    }
 }
 
 
