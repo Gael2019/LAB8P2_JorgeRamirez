@@ -14,7 +14,8 @@ public class Nadador3 extends Thread{
     int distance;
     JProgressBar barra;
     int random;
-
+    boolean ganador;
+    
     public Nadador3(int distance, JProgressBar barra) {
         this.distance = distance;
         this.barra = barra;

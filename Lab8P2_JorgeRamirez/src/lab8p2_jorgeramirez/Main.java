@@ -81,14 +81,14 @@ public class Main extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jProgressBar2 = new javax.swing.JProgressBar();
         jProgressBar3 = new javax.swing.JProgressBar();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ComboboxModeloSIM = new javax.swing.JComboBox<>();
         jToggleButton2 = new javax.swing.JToggleButton();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ComboNad1 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        ComboBoxNad2 = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        ComboBoxNad3 = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         ListarEventos = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -376,6 +376,16 @@ public class Main extends javax.swing.JFrame {
         jLabel15.setText("MODELO");
 
         jToggleButton2.setText("SIMULAR");
+        jToggleButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton2MouseClicked(evt);
+            }
+        });
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel16.setText("NADADOR 1");
@@ -400,19 +410,19 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(309, 309, 309)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(ComboboxModeloSIM, 0, 140, Short.MAX_VALUE)
+                            .addComponent(jLabel16)
+                            .addComponent(ComboBoxNad2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboBoxNad3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboNad1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(322, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -421,18 +431,15 @@ public class Main extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(jLabel15)
                 .addGap(29, 29, 29)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ComboboxModeloSIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboNad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -441,12 +448,12 @@ public class Main extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel17)))
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ComboBoxNad2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(ComboBoxNad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jToggleButton2)
                 .addGap(29, 29, 29))
         );
@@ -644,6 +651,39 @@ public class Main extends javax.swing.JFrame {
         tablotaevent.setModel(modelotabla);
     }//GEN-LAST:event_ListarEventosActionPerformed
 
+    private void jToggleButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton2MouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jToggleButton2MouseClicked
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+         Evento e = ((Evento) ComboboxModeloSIM.getSelectedItem());
+         int distancia = e.getDistancia() ;
+         String style = e.getEstilo();
+         Nadador Nad1= ((Nadador)ComboNad1.getSelectedItem());
+         Nadador Nad2= ((Nadador)ComboBoxNad2.getSelectedItem());
+         Nadador Nad3= ((Nadador)ComboBoxNad3.getSelectedItem());
+         boolean estilo = false;
+         boolean distance = false;
+         if (style.equalsIgnoreCase(Nad1.getEstiloNatacion())) {
+             if (style.equalsIgnoreCase(Nad2.getEstiloNatacion())) {
+                 if (style.equalsIgnoreCase(Nad3.getEstiloNatacion())) {
+                     estilo = true;
+                 }        
+             }
+        }
+         
+         if (distancia == Nad1.getDistanciaNatacion()) {
+             if (distancia == Nad2.distanciaNatacion) {
+                 if (distancia == Nad3.getDistanciaNatacion()) {
+                     distance = true;
+                 }
+             }
+        }
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -683,8 +723,12 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton BotonCrearNadador;
     private javax.swing.JToggleButton BotonCrearPais;
+    private javax.swing.JComboBox<String> ComboBoxNad2;
+    private javax.swing.JComboBox<String> ComboBoxNad3;
     private javax.swing.JComboBox<String> ComboEstiloNadador;
     private javax.swing.JComboBox<String> ComboNacionalidadNA;
+    private javax.swing.JComboBox<String> ComboNad1;
+    private javax.swing.JComboBox<String> ComboboxModeloSIM;
     private javax.swing.JComboBox<String> DistanciaComboBox;
     private javax.swing.JTextField DistanciaNadador;
     private javax.swing.JTextField EdadNadador;
@@ -699,10 +743,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner SpinnerMedallas;
     private javax.swing.JSpinner SpinnerTiempoN;
     private javax.swing.JTable TablaDeNadadores;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -740,7 +780,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Evento> event = new ArrayList();
     ArrayList<Pais> paises = new ArrayList();
     ArrayList<Nadador> nadadores = new ArrayList();
-
+    
     public void AgregarArchivo(Pais country) {
         try {
             File Archivo = new File("./PaisParticipantes.sof");
